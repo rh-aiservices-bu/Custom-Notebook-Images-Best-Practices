@@ -1,6 +1,6 @@
 # custom-images
 
-* Some starting instructions on ways a customer could create/leverage custom notebook images: [Building Custom Images](Building_Custom_Notebook_Images.md)... this is a bit out of date now that there is a GUI. 
+* Some starting instructions on ways a customer could create/leverage custom notebook images: [Building Custom Images](Building_Custom_Notebook_Images.md)... this is a bit out of date now that there is a GUI.
 
 ## simple diagram to set the stage
 
@@ -8,11 +8,11 @@
 
 ## Introductions to the various options
 
-* build on laptop and push to quay.io
+* build on laptop and push to quay.io. See the [laptop-build-howto](docs/laptop-build-howto.md) page.
 * on-cluster build, stored only in cluster
 * on-cluster build, stored on quay.io, with a pipeline that makes the updates (stretch goal)
 
-Include links to `./docs/` for more details/examples for each option 
+Include links to `./docs/` for more details/examples for each option
 
 ## Building Jupyter Notebook Images ... considerations
 
@@ -26,7 +26,7 @@ Include links to `./docs/` for more details/examples for each option
 
 ## Reading/reference materials
 
-* <https://github.com/guimou/custom-notebooks> 
+* <https://github.com/guimou/custom-notebooks>
 * <https://github.com/rh-aiservices-bu/byoni>
 
 
