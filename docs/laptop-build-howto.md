@@ -43,7 +43,7 @@ For this example, we will be using a Dockerfile containing instructions to build
 ```
 [user@fedora notebook-images]$ cd custom-notebooks/r-notebook/container/
 ```
-3. Since the Dockerfile is ready-made, we don't need to create a new one. We can skip that step and build our notebook image from the ready-made one. Let's name it userrstudio:v1.
+3. Since the Dockerfile is ready-made, we don't need to create a new one. We can skip that step and build our notebook image from the ready-made one. Let's name it user:rstudiov1.
 ```
 [user@fedora notebook-images]$ build -t user:rstudiov1 -f Dockerfile
 ```
@@ -55,8 +55,13 @@ Successfully tagged localhost/user:rstudiov1
 ## Create Quay.io account and public repo
 Now that you know how to build a notebook on your local workstation from a Dockerfile, let's go over how you can push it to a public repository via Quay.io which is an container image registy. There are other registries out there such as the Docker Registry, but for this tutorial, we are using Quay.io
 
+For the rest of this tutorial, we will be referencing the RStudio notebook image as our example.
+
 1. For first time users, you need to sign up for an account on Quay.io
-2. Create a repository for your project
+2. Create a repository for your project. Let's name it 'rstudio'
+
+![](/img/quay-ui.png)
+![](/img/quay-create-new-repo.png)
 
 ## pushing the image to quay
 1. To push your image to Quay, we first have to login to our account through the terminal.
@@ -65,7 +70,7 @@ Now that you know how to build a notebook on your local workstation from a Docke
 Username:
 Password:
 ```
-The following message will let you know that your login was successful:
+  The following message will let you know that your login was successful:
 ```
 Login Succeeded!
 ```
@@ -73,7 +78,7 @@ Login Succeeded!
 ```
 [user@fedora container]$ podman tag <old_name> <new_name>
 ```
-eg. RStudio Notebook Image
+  eg. RStudio Notebook Image
 ```
 [user@fedora container]$ podman tag localhost/user:rstudiov1 quay.io/user/user:rstudiov1
 ```
@@ -81,6 +86,15 @@ eg. RStudio Notebook Image
 ```
 [user@fedora container]$ podman push quay.io/user/user:rstudiov1
 ```
+  The following message will let you know that you successfully pushed to your Quay.io repo:
+ ```
+ ...
+ Writing manifest to image destination
+ Storing signatures
+ ```
+ 4. You can now view your notebook image in your Quay.io repo.
+
+  
 
 ## adding the image to RHODS
 
