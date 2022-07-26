@@ -8,7 +8,8 @@ In this document, we will do a step-by-step walkthrough of the required steps to
 
 ## Required software
 * Podman (Installation instructions can be found [here](https://podman.io/getting-started/installation))
-   * More information regarding podman commands can be found [here](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux_atomic_host/7/html/managing_containers/finding_running_and_building_containers_with_podman_skopeo_and_buildah) or run the following command in your terminal:
+
+    * More information regarding podman commands can be found [here](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux_atomic_host/7/html/managing_containers/finding_running_and_building_containers_with_podman_skopeo_and_buildah) or alternatively, run the following command in your terminal:
 ```
 [user@fedora ~] podman 
 ```
@@ -115,8 +116,9 @@ Login Succeeded!
 
 <p align="center"><img src=/img/enable-nb-img.png width=900 height=500></p>
 
-
 5. Go to JupyterHub and select your notebook image and launch a RStudio Notebook.
+
+<p align="center"><img src=/img/rstudio-v1.png width=400 height=300></p>
 <p align="center"><img src=/img/rstudio-notebook.png width=900 height=450></p>
 
 6. Since this is an RStudio notebook image, let's do a sanity check by running the following commands:
