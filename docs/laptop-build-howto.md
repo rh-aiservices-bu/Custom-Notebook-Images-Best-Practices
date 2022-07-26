@@ -127,6 +127,8 @@ Login Succeeded!
 > SessionInfo()
 ```
 
-<p align="center"><img src=/img/rstudio-sanity-check.png width=900 height=800></p>
+<!-- <p align="center"><img src=/img/rstudio-sanity-check.png width=900 height=800></p> -->
+
+![r studio](/img/rstudio-sanity-check.png "Rstudio")
 
 7. If your outputs look normal, congratulations, you have created your first notebook image on RHODS.
