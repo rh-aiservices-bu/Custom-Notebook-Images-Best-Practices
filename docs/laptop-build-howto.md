@@ -8,6 +8,10 @@ In this document, we will do a step-by-step walkthrough of the required steps to
 
 ## Required software
 * Podman (Installation instructions can be found [here](https://podman.io/getting-started/installation))
+   * More information regarding podman commands can be found [here](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux_atomic_host/7/html/managing_containers/finding_running_and_building_containers_with_podman_skopeo_and_buildah) or run the following command in your terminal:
+```
+[user@fedora ~] podman 
+```
 
 
 ## Building
@@ -45,7 +49,7 @@ For this example, we will be using a Dockerfile containing instructions to build
 ```
 3. Since the Dockerfile is ready-made, we don't need to create a new one. We can skip that step and build our notebook image from the ready-made one. Let's name our notebook image 'user:rstudiov1'.
 ```
-[user@fedora notebook-images]$ build -t rstudio:userv1 -f Dockerfile
+[user@fedora container]$ build -t rstudio:userv1 -f Dockerfile
 ```
 4. Again, the following message will let you know that your notebook image was succesfully built on your local workstation:
 ```
@@ -59,11 +63,11 @@ Now that you know how to build a notebook on your local workstation from a Docke
 
 1. For first time users, you need to sign up for an account on Quay.io
 
-<center><img src=/img/quay-ui.png width=900 height=300></center>
+<p align="center"><img src=/img/quay-ui.png width=900 height=300></p>
 
 2. Create a repository for your project. Let's name it 'rstudio'
 
- <center><img src='/img/quay-create-new-repo.png' width=900 height=500></center>
+<p align="center"><img src='/img/quay-create-new-repo.png' width=900 height=500></p>
 
 ## Pushing the image to Quay
 1. To push our image to Quay.io, we first have to login to our account through the terminal.
@@ -92,33 +96,35 @@ Login Succeeded!
  ```
  4. We can now view your notebook image in our Quay.io repository.
  
- <center><img src=/img/quay-push.png width=900 height=250></center>
+<p align="center"><img src=/img/quay-push.png width=900 height=250></p>
 
 ## Adding the image to RHODS
 1. Click on the 'Fetch Tag' icon. From the 'Image Format' dropdown menu, select 'Podman Pull (by tag)' and copy the latter half of the podman pull command. 
 
-<img src=/img/img-tag.png width=900 height=450>
+<p align="center"><img src=/img/img-tag.png width=900 height=450></p>
 
 2. Go to the [RHODS pilot cluster](https://rhods-dashboard-redhat-ods-applications.apps.pilot.j61u.p1.openshiftapps.com) and navigate to the 'Settings' dropdown menu on the left and select 'Notebook Images'
 
-<img src=/img/rhods-pilot-cluster.png width=900 height=450>
+<p align="center"><img src=/img/rhods-pilot-cluster.png width=900 height=450></p>
 
 3. Click on 'Import Notebook' and paste your notebook image tag in the 'Repository' section and give your notebook image a name in the 'Name' section.
 
-<img src=/img/import-nb-imgs.png width=900 height=500>
+<p align="center"><img src=/img/import-nb-imgs.png width=900 height=500></p>
 
-4. Make sure you enable your notebook image before navigating to the 'Applications' dropdomn menu on the left and selecting 'Enabled'
+4. Make sure you enable your notebook image before navigating to the 'Applications' dropdown menu on the left and selecting 'Enabled'
 
-<img src=/img/enable-nb-img.png width=900 height=500>
+<p align="center"><img src=/img/enable-nb-img.png width=900 height=500></p>
 
 
 5. Go to JupyterHub and select your notebook image and launch a RStudio Notebook.
- <img src=/img/rstudio-notebook.png width=900 height=450>
+<p align="center"><img src=/img/rstudio-notebook.png width=900 height=450></p>
 
 6. Since this is an RStudio notebook image, let's do a sanity check by running the following commands:
 ```
-> print('hello world')
+> print('hello world!')
 > SessionInfo()
 ```
 
-<img src=/img/rstudio-sanity-check.png width=900 height=800>
+<p align="center"><img src=/img/rstudio-sanity-check.png width=900 height=800></p>
+
+7. If your outputs look normal, congratulations, you have created your first notebook image on RHODS.
