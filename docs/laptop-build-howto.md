@@ -17,26 +17,35 @@ In this document, we will do a step-by-step walkthrough of the required steps to
 
 ## Building
 Yoy can either build your container based off of a Dockerfile you create from scratch or a ready-made one. We will show both options below:
+
 ### Creating a Dockerfile from scratch
+
 1. In your terminal, create a new directory to work on building notebooks. For example, create a directory named 'notebook-images' in your Documents directory.
-```
-  cd Documents
-  mkdir notebook-images
-```
+
+    ```
+    cd ~/Documents
+    mkdir -p ~/Documents/notebook-images
+    ```
+
 3. In your working directory, create a new file and name it. For example, let's name our file 'new.Dockerfile':
-```
-  vim new.Dockerfile
-```
+
+    ```
+    vim ~/Documents/notebook-images/new.Dockerfile
+    ```
+
 3. Insert Docker commands into it before writing and quitting.
 
 4. Build a notebook image from your Dockerfile and name it 'image:userv1' by running the following command:
-```
-  podman build -t image:userv1 -f new.Dockerfile
-```
-5. You should recieve the following message letting you know that your notebook image was succesfully built on your local workstation:
-```
-Successfully tagged localhost/image:userv1
-```
+
+    ```
+    cd ~/Documents/notebook-images
+    podman build -t image:userv1 -f new.Dockerfile
+    ```
+
+5. You should receive the following message letting you know that your notebook image was successfully built on your local workstation:
+
+    **Successfully tagged localhost/image:userv1**
+
 
 ### Using a ready-made Dockerfile
 For this example, we will be using a Dockerfile containing instructions to build a RStudio notebook image which can be found [here](https://github.com/guimou/custom-notebooks/blob/main/r-notebook/container/Dockerfile)
