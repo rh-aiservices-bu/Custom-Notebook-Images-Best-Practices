@@ -120,7 +120,7 @@ As an example, we will user [quay.io](https://quay.io/). You can however use oth
 
  4. You can now view your notebook image in our Quay.io repository.
 
-<p align="center"><img src=/img/quay-push.png width=900 height=250></p>
+    <p align="center"><img src=/img/quay-push.png width=900 height=250></p>
 
 ## Adding the image to RHODS
 
@@ -144,9 +144,9 @@ As an example, we will user [quay.io](https://quay.io/). You can however use oth
 
 5. Go to JupyterHub and select your notebook image and launch a RStudio Notebook.
 
-  <p align="center"><img src=/img/rstudio-v1.png width=400 height=300></p>
+    <p align="center"><img src=/img/rstudio-v1.png width=400 height=300></p>
 
-  <p align="center"><img src=/img/rstudio-notebook.png width=900 height=450></p>
+    <p align="center"><img src=/img/rstudio-notebook.png width=900 height=450></p>
 
 6. Since this is an RStudio notebook image, let's do a sanity check by running the following commands:
 
@@ -155,6 +155,6 @@ As an example, we will user [quay.io](https://quay.io/). You can however use oth
     > SessionInfo()
     ```
 
-![r studio](/img/rstudio-sanity-check.png "Rstudio")
+    ![r studio](/img/rstudio-sanity-check.png "Rstudio")
 
 7. If your outputs look normal, congratulations, you have created your first notebook image on RHODS.
