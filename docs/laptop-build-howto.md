@@ -16,7 +16,8 @@ In this document, we will do a step-by-step walkthrough of the required steps to
     ```
 
 ## Building
-Yoy can either build your container based off of a Dockerfile you create from scratch or a ready-made one. We will show both options below:
+
+You can either build your container based off of a Dockerfile you create from scratch or a ready-made one. We will show both options below:
 
 ### Creating a Dockerfile from scratch
 
