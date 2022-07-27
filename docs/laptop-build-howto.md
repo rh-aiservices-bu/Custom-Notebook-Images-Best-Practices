@@ -2,7 +2,7 @@
 
 In this document, we will do a step-by-step walkthrough of the required steps to:
 * Build a notebook image on your local workstation
-* Create a quay.io account and public repo
+* Create a quay.io account and public image registry
 * Push the local image into the registry
 * Add the image to your RHODS environment
 
@@ -10,9 +10,10 @@ In this document, we will do a step-by-step walkthrough of the required steps to
 * Podman (Installation instructions can be found [here](https://podman.io/getting-started/installation))
 
     * More information regarding podman commands can be found [here](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux_atomic_host/7/html/managing_containers/finding_running_and_building_containers_with_podman_skopeo_and_buildah) or alternatively, run the following command in your terminal:
-  ```
-   podman
-  ```
+
+    ```
+    podman --help
+    ```
 
 ## Building
 Yoy can either build your container based off of a Dockerfile you create from scratch or a ready-made one. We will show both options below:
@@ -47,19 +48,28 @@ Yoy can either build your container based off of a Dockerfile you create from sc
 
 
 ### Using a ready-made Dockerfile
+
 For this example, we will be using a Dockerfile containing instructions to build a RStudio notebook image which can be found [here](https://github.com/guimou/custom-notebooks/blob/main/r-notebook/container/Dockerfile).
+
 1. Git clone the repository into your working directory. For the sake of simplicity, we are working in the same directory as the previous example.
+
     ```
-    cd ~/Documents/notebook-images/ git clone https://github.com/guimou/custom-notebooks.git
+    cd ~/Documents/notebook-images/
+    git clone https://github.com/guimou/custom-notebooks.git
     ```
+
 2. Go into the 'custom-notebooks/r-notebook/container/' directory.
+
     ```
     cd ~/Documents/notebook-images/custom-notebooks/r-notebook/container/
     ```
+
 3. Since the Dockerfile is ready-made, we don't need to create a new one. We can skip that step and build our notebook image from the ready-made one. Let's name our notebook image 'user:rstudiov1'.
+
     ```
     podman build -t rstudio:userv1 -f Dockerfile
     ```
+
 4. Again, the following message will let you know that your notebook image was succesfully built on your local workstation:
 
     **Successfully tagged localhost/rstudio:userv1**
@@ -98,9 +108,9 @@ Now that you know how to build a notebook on your local workstation from a Docke
     The following messages will let us know that we successfully pushed to your Quay.io repository:
 
     **Writing manifest to image destination**
-  
+
     **Storing signatures**
- 
+
  4. We can now view your notebook image in our Quay.io repository.
 
 <p align="center"><img src=/img/quay-push.png width=900 height=250></p>
