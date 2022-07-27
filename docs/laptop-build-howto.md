@@ -76,20 +76,24 @@ For this example, we will be using a Dockerfile containing instructions to build
 
 
 ## Create Quay.io account and public repo
-Now that you know how to build a notebook on your local workstation from a Dockerfile, let's go over how you can push it to a public repository via Quay.io which is an container image registy. There are other registries out there such as the Docker Registry, but for this tutorial, we are using Quay.io
+
+Now that you know how to build a notebook on your local workstation from a Dockerfile, let's go over how you can push it to a public container image registry.
+As an example, we will user [quay.io](https://quay.io/). You can however use other registries, such as [DockerHub](https://hub.docker.com/) if you prefer.
 
 **For the rest of this tutorial, we will be referencing the RStudio notebook image as our example.**
 
 1. For first time users, you need to sign up for an account on Quay.io
 
-<p align="center"><img src=/img/quay-ui.png width=900 height=300></p>
+    <p align="center"><img src=/img/quay-ui.png width=900 height=300></p>
 
 2. Create a repository for your project. Let's name it 'rstudio'
 
-<p align="center"><img src='/img/quay-create-new-repo.png' width=900 height=500></p>
+    <p align="center"><img src='/img/quay-create-new-repo.png' width=900 height=500></p>
 
 ## Pushing the image to Quay
+
 1. To push our image to Quay.io, we first have to login to our account through the terminal.
+
     ```
     podman login quay.io
     ```
@@ -97,11 +101,14 @@ Now that you know how to build a notebook on your local workstation from a Docke
 
     **Login Succeeded!**
 
-2. Let's rename our locally stored image from 'localhost/rstudio:userv1' to 'quay.io/user/rstudio:userv1'. This step is optional but it helps us differentiate between our locally stored image from the one that we'll be pushing to Quay.io
+2. Let's rename our locally stored image from 'localhost/rstudio:userv1' to 'quay.io/user/rstudio:userv1'. This step is NOT optional. In reality, it does not rename the image, it adds an alternative name to it. In our case, this name needs to match the name the image will have once it's pushed to quay.io.
+
     ```
     podman tag localhost/rstudio:userv1 quay.io/user/rstudio:userv1
     ```
-3. Push the RStudio image to our Quay.io repository.
+
+3. Push the RStudio image to our Quay.io repository. Notice how the the name of the "remote" image matches exactly with the name used in the `tag` command just above.
+
     ```
     podman push quay.io/user/rstudio:userv1
     ```
@@ -111,33 +118,38 @@ Now that you know how to build a notebook on your local workstation from a Docke
 
     **Storing signatures**
 
- 4. We can now view your notebook image in our Quay.io repository.
+ 4. You can now view your notebook image in our Quay.io repository.
 
 <p align="center"><img src=/img/quay-push.png width=900 height=250></p>
 
 ## Adding the image to RHODS
+
 1. Click on the 'Fetch Tag' icon. From the 'Image Format' dropdown menu, select 'Podman Pull (by tag)' and copy the latter half of the podman pull command.
 
-<p align="center"><img src=/img/img-tag.png width=900 height=450></p>
+    <p align="center"><img src=/img/img-tag.png width=900 height=450></p>
 
-2. Go to the [RHODS pilot cluster](https://rhods-dashboard-redhat-ods-applications.apps.pilot.j61u.p1.openshiftapps.com) and navigate to the 'Settings' dropdown menu on the left and select 'Notebook Images'
+2. Go to the your own RHODS environment.
+1. Make sure to log in with an Account that is considered to be a RHODS administrator.
+1. Navigate to the 'Settings' dropdown menu on the left and select 'Notebook Images'
 
-<p align="center"><img src=/img/rhods-pilot-cluster.png width=900 height=450></p>
+    <p align="center"><img src=/img/rhods-pilot-cluster.png width=900 height=450></p>
 
 3. Click on 'Import Notebook' and paste your notebook image tag in the 'Repository' section and give your notebook image a name in the 'Name' section.
 
-<p align="center"><img src=/img/import-nb-imgs.png width=900 height=500></p>
+    <p align="center"><img src=/img/import-nb-imgs.png width=900 height=500></p>
 
 4. Make sure you enable your notebook image before navigating to the 'Applications' dropdown menu on the left and selecting 'Enabled'
 
-<p align="center"><img src=/img/enable-nb-img.png width=900 height=500></p>
+    <p align="center"><img src=/img/enable-nb-img.png width=900 height=500></p>
 
 5. Go to JupyterHub and select your notebook image and launch a RStudio Notebook.
 
-<p align="center"><img src=/img/rstudio-v1.png width=400 height=300></p>
-<p align="center"><img src=/img/rstudio-notebook.png width=900 height=450></p>
+  <p align="center"><img src=/img/rstudio-v1.png width=400 height=300></p>
+
+  <p align="center"><img src=/img/rstudio-notebook.png width=900 height=450></p>
 
 6. Since this is an RStudio notebook image, let's do a sanity check by running the following commands:
+
     ```
     > print('hello world!')
     > SessionInfo()
