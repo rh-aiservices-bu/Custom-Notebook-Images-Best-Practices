@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # custom-images
 
 * Some starting instructions on ways a customer could create/leverage custom notebook images: [Building Custom Images](Building_Custom_Notebook_Images.md)... this is a bit out of date now that there is a GUI.
@@ -33,3 +34,13 @@ Include links to `./docs/` for more details/examples for each option
 
 
 
+=======
+# R Notebook
+
+Custom notebook based on RHODS standard data science notebook, adding:
+
+* R
+* R Kernel
+* R Studio
+* Streamlit
+>>>>>>> cfa0a5dc159fb054a27fa932302f0325d3177700
