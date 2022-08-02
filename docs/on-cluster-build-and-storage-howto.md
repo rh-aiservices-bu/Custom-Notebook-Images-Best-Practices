@@ -21,7 +21,7 @@ In this document, we go over a step-by-step walkthrough to build and store a not
     ```
 2. Go into this project's directory.
     ```
-    cd Custom-Notebook-Images-Best-Practices/r-notebook-streamlit
+    cd Custom-Notebook-Images-Best-Practices/r-notebook-streamlit/deploy/
     ```
 **All of the following steps will take place in this directory**
 
@@ -29,7 +29,7 @@ In this document, we go over a step-by-step walkthrough to build and store a not
 
 In order for a custom image to be available in RHODS JupyterHub, an ImageStream must be created in the redhat-ods-applications namespace of the OpenShift cluster where RHODS is deployed.
 
-For the purposes of this tutorial, we will update one of the R-Studio default notebook image to include Streamlit. You can find the original ImageStream [here](https://github.com/rh-aiservices-bu/Custom-Notebook-Images-Best-Practices/blob/main/r-notebook/deploy/odh-minimal-data-science-r-notebook_image-stream.yml).
+For the purposes of this tutorial, we will update one of the R-Studio default notebook image to include Streamlit. You can find the original ImageStream in the same directori here [here](https://github.com/rh-aiservices-bu/Custom-Notebook-Images-Best-Practices/blob/main/r-notebook-streamlit/deploy/odh-minimal-data-science-r-notebook_image-stream.yml).
 
 1. In your preferred text editor, name your ImageStream object 'r-notebook-with-streamlit_imagestream.yaml' and update it accordingly:
     ```
@@ -41,7 +41,7 @@ For the purposes of this tutorial, we will update one of the R-Studio default no
                 JupyterLab minimal notebook image with R, IRKernel and RStudio.
             opendatahub.io/notebook-image-name: users rstudio streamlit
              opendatahub.io/notebook-image-order: '200'
-            opendatahub.io/notebook-image-url: 'https://github.com/rh-ai-services/custom-notebooks/tree/main/r-notebook'
+            opendatahub.io/notebook-image-url: 'https://github.com/rh-ai-services/Custom-Notebook-Images-Best-Practices/tree/main/r-notebook'
         name: users-rstudio-streamlit 
         labels:
             component.opendatahub.io/name: jupyterhub
@@ -94,7 +94,7 @@ Suppose you want to build your notebook container image locally in the OpenShift
             type: Git
             git:
             uri: https://github.com/rh-ai-services/Custom-Notebook-Images-Best-Practices.git
-           contextDir: r-notebook/container
+           contextDir: r-notebook-streamlit/container
   
         strategy:
             type: Docker
