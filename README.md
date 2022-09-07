@@ -9,7 +9,7 @@
 ## Introductions to the various options
 
 * build on laptop and push to quay.io. See the [laptop-build-howto](docs/laptop-build-howto.md) page.
-* on-cluster build, stored only in cluster
+* on-cluster build, stored only in cluster. See the [on-cluster-build-and-storage-howto](/docs/on-cluster-build-and-storage-howto.md) page.
 * on-cluster build, stored on quay.io, with a pipeline that makes the updates (stretch goal)
 
 Include links to `./docs/` for more details/examples for each option
