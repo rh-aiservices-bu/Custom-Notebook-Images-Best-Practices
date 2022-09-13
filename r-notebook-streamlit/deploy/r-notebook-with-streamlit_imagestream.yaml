@@ -1,0 +1,38 @@
+kind: ImageStream
+apiVersion: image.openshift.io/v1
+metadata: 
+  name: users-rstudio-streamlit
+  annotations: 
+    opendatahub.io/notebook-image-desc: JupyterLab minimal notebook image with R, IRKernel, RStudio and Streamlit.
+    opendatahub.io/notebook-image-name: users rstudio streamlit
+    opendatahub.io/notebook-image-order: '200'
+   # opendatahub.io/notebook-image-url: 'https://github.com/rh-aiservices-bu/Custom-Notebook-Images-Best-Practices/tree/main/r-notebook'
+  
+    opendatahub.io/notebook-image-creator: christina
+   # opendatahub.io/notebook-image-desc: ''
+    opendatahub.io/notebook-image-messages: ''
+   # opendatahub.io/notebook-image-name: 'quay.io/ucsls/ucsls:stable-opf_09.01.22_11.17.52'
+    opendatahub.io/notebook-image-origin: Admin
+    opendatahub.io/notebook-image-phase: Succeeded
+   # opendatahub.io/notebook-image-url: 'quay.io/ucsls/ucsls:stable-opf_09.01.22_11.17.52'
+   # openshift.io/image.dockerRepositoryCheck: '2022-09-06T12:07:57Z'
+  
+  labels: 
+    app.kubernetes.io/created-by: byon
+    component.opendatahub.io/name: jupyterhub
+    opendatahub.io/component: 'true'
+    opendatahub.io/notebook-image: 'true'
+spec: 
+  lookupPolicy: 
+    local: true
+  tags: 
+    - name: v1
+      annotations: 
+        opendatahub.io/notebook-python-dependencies: >-
+          [{"name":"R","version":"4.0.5"},{"name":"RStudio","version":"2022.02.0-443"}, {"name": "Streamlit","version":"1.11.1"}]
+        opendatahub.io/notebook-software: >-
+          '[{"name":"BYO Notebook Image - R","version":"4.0.5"},{"name":"RStudio","version":"2022.02.0"},{"name":"Python","version":"3.9.10"},{"name": "Streamlit","version":"1.11.1"}]'
+      referencePolicy: 
+        type: Local
+    
+      
