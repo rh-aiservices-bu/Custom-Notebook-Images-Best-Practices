@@ -31,7 +31,7 @@ spec:
         opendatahub.io/notebook-python-dependencies: >-
           [{"name":"R","version":"4.0.5"},{"name":"RStudio","version":"2022.02.0-443"}, {"name": "Streamlit","version":"1.11.1"}]
         opendatahub.io/notebook-software: >-
-          '[{"name":"BYO Notebook Image - R","version":"4.0.5"},{"name":"RStudio","version":"2022.02.0"},{"name":"Python","version":"3.9.10"},{"name": "Streamlit","version":"1.11.1"}]'
+          [{"name":"BYO Notebook Image - R","version":"4.0.5"},{"name":"RStudio","version":"2022.02.0"},{"name":"Python","version":"3.9.10"},{"name": "Streamlit","version":"1.11.1"}]
       referencePolicy: 
         type: Local
     
