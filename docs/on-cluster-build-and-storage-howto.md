@@ -1,6 +1,6 @@
 # Jupyter Notebook - on cluster build and storage
 
-In this document, we will go over a step-by-step walkthrough to build and store a notebook container image on the OpenShift cluster by demonstrating how to build an R notebook image with Streamlit.
+In this document, we will go over a step-by-step walkthrough to build and store a notebook container image on the OpenShift cluster by updating an R notebook image with Streamlit.
 
 ## Table of Contents
 
@@ -31,7 +31,7 @@ In this document, we will go over a step-by-step walkthrough to build and store 
     ```
     **All of the following steps will take place in this directory.**
 
-3. Head over to the [Red Hat OpenShift Console](https://console-openshift-console.apps.pilot.j61u.p1.openshiftapps.com/dashboards) and copy the login command and run it in your terminal.
+3. Head over to the [Red Hat OpenShift Console](https://console-openshift-console.apps.pilot.j61u.p1.openshiftapps.com/dashboards) and copy the login command. Paste and run it in your terminal.
 
     ![login](/img/copy-login-command.png)
 
@@ -139,16 +139,16 @@ For the purposes of this tutorial, we will update one of the R-Studio default no
 
     ![logs](/img/on-cluster-build-logs.png)
 
-3. Once your build is complete, you should be able to see it on RHODS listed in "Notebook Images" and view it as one of the JupyterHub notebook options.
+3. Once your build is complete, you should be able to see it on RHODS listed in `Notebook Images`. Make sure you enable it to view it as one of the JupyterHub notebook options.
 
     ![web-ui](/img/on-cluster-build-web-ui.png)
 
     ![jupyter-nb](/img/on-cluster-build-jupyternb.png)
 
 ## Sanity Checks
-1. On JupyterHub, select your notebook image and launch your newly built RStudio Notebook with Streamlit.
+1. On JupyterHub, select your notebook image and launch your newly built RStudio notebook image with Streamlit.
 
-2. Since this is an RStudio notebook image, do a sanity check by running the following commands:
+2. Complete a sanity check by running the following commands:
 
     ```
     print('hello world!')
@@ -156,7 +156,7 @@ For the purposes of this tutorial, we will update one of the R-Studio default no
     ```
     ![rstudio](/img/r-studio-sanity-check.png)
 
-3. Within your R notebook, open the terminal and run the following command to check if Strealit was properly installed:
+3. Within your R notebook, open the terminal and run the following command to check if Streamlit was properly installed:
 
     ```
     streamlit hello
